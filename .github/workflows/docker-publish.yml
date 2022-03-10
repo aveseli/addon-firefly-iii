@@ -71,7 +71,8 @@ jobs:
           args: |
             --all \
             --target firefly-iii \
-            --docker-hub ghcr.io/aveseli/addon-firefly-iii
+           
+      # --docker-hub ghcr.io/aveseli/addon-firefly-iii
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
