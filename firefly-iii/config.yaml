@@ -2,7 +2,7 @@ name: Firefly III
 version: master
 slug: firefly-iii
 description: A free and open source personal finance manager
-url: https://github.com/hassio-addons/addon-firefly-iii
+url: https://github.com/aveseli/addon-firefly-iii/
 homeassistant: 2021.3.0
 webui: "[PROTO:ssl]://[HOST]:[PORT:80]"
 services: ["mysql:want"]
@@ -37,3 +37,5 @@ schema:
   keyfile: "str"
   ssl: "bool"
   mapbox_api_key: "str?"
+  - ssl
+image: aveseli/{arch}-addon-firefly-iii
