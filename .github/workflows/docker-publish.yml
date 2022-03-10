@@ -72,7 +72,7 @@ jobs:
             --amd64 \
             --target firefly-iii \
             --docker-hub ${{ env.REGISTRY }}/${{ github.actor }} \
-            --image {arch}-firefly-iii
+            --image firefly-iii/{arch}
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
