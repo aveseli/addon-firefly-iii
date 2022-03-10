@@ -71,7 +71,7 @@ jobs:
           args: |
             --all \
             --target firefly-iii \
-            --docker-hub ${{ env.REGISTRY }}/${{ github.actor }}
+            --docker-hub ${{ env.REGISTRY }}/${{ github.actor }} \
             --image firefly-iii
 
       # Build and push Docker image with Buildx (don't push on PR)
