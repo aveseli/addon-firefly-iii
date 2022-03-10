@@ -71,7 +71,7 @@ jobs:
           args: |
             --all \
             --target firefly-iii \
-            --docker-hub user-name-or-space-name
+            --docker-hub ${{ github.actor }}
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
