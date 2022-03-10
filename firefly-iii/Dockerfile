@@ -92,7 +92,7 @@ ARG BUILD_VERSION
 LABEL \
     io.hass.name="Firefly III" \
     io.hass.description="A free and open source personal finance manager" \
-    io.hass.arch="${BUILD_ARCH}" \
+    io.hass.arch=${BUILD_ARCH} \
     io.hass.type="addon" \
     io.hass.version="master" \
     maintainer="Paul Sinclair <hello@addons.community>" \
