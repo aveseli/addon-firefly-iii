@@ -94,7 +94,7 @@ LABEL \
     io.hass.description="A free and open source personal finance manager" \
     io.hass.arch="${BUILD_ARCH}" \
     io.hass.type="addon" \
-    io.hass.version=${BUILD_VERSION} \
+    io.hass.version="master" \
     maintainer="Paul Sinclair <hello@addons.community>" \
     org.opencontainers.image.title="Firefly III" \
     org.opencontainers.image.description="A free and open source personal finance manager" \
