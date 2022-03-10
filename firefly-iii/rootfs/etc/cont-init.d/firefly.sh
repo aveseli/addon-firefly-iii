@@ -10,6 +10,7 @@ declare password
 declare port
 declare username
 
+
 if ! bashio::fs.directory_exists "/data/firefly/upload"; then
     bashio::log "Creating upload directory"
     mkdir -p /data/firefly/upload
