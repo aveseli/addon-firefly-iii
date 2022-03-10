@@ -12,10 +12,6 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN set -x ; \
   addgroup -g 82 -S www-data ; \
   adduser -u 82 -D -S -G www-data www-data && exit 0 ; exit 1
-# 82 is the standard uid/gid for "www-data" in Alpine
-# http://git.alpinelinux.org/cgit/aports/tree/main/apache2/apache2.pre-install?h=v3.3.2
-# http://git.alpinelinux.org/cgit/aports/tree/main/lighttpd/lighttpd.pre-install?h=v3.3.2
-# http://git.alpinelinux.org/cgit/aports/tree/main/nginx-initscripts/nginx-initscripts.pre-install?h=v3.3.2
 
 RUN apk update && apk upgrade
 
@@ -94,7 +90,7 @@ LABEL \
     io.hass.description="A free and open source personal finance manager" \
     io.hass.arch=${BUILD_ARCH} \
     io.hass.type="addon" \
-    io.hass.version="master" \
+    io.hass.version=${BUILD_VERSION} \
     maintainer="Paul Sinclair <hello@addons.community>" \
     org.opencontainers.image.title="Firefly III" \
     org.opencontainers.image.description="A free and open source personal finance manager" \
