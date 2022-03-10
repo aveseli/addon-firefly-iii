@@ -37,5 +37,4 @@ schema:
   keyfile: "str"
   ssl: "bool"
   mapbox_api_key: "str?"
-  - ssl
 image: aveseli/{arch}-addon-firefly-iii
