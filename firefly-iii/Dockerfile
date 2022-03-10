@@ -19,7 +19,7 @@ RUN set -x ; \
 
 RUN apk update && apk upgrade
 
-RUN apk add --no-cache bash curl unzip
+RUN apk add --no-cache bash curl unzip mariadb-client
 
 RUN apk add --no-cache \
     php8 \
