@@ -36,16 +36,16 @@ fi
 bashio::log.info "Installing/updating Database"
 
 bashio::log.info "Step 1: migrate:refresh"
-sudo php /var/www/firefly/artisan migrate:refresh --seed
+php /var/www/firefly/artisan migrate:refresh --seed
 
 bashio::log.info "Step 2: firefly-iii:upgrade-database"
-sudo php /var/www/firefly/artisan firefly-iii:upgrade-database
+php /var/www/firefly/artisan firefly-iii:upgrade-database
 
 bashio::log.info "Step 3: passport:install"
-sudo php /var/www/firefly/artisan passport:install
+php /var/www/firefly/artisan passport:install
 
 bashio::log.info "Step 4: key:generate"
-sudo php /var/www/firefly/artisan key:generate
+php /var/www/firefly/artisan key:generate
 
 
 #sphp /var/www/firefly/artisan firefly-iii:create-database > /dev/null 2>&1
