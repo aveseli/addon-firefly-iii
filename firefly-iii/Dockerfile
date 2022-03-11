@@ -34,6 +34,7 @@ RUN apk add --no-cache \
     php8-intl \
     php8-ldap \
     php8-mysqli \
+    php8-pdo_mysql \
     php8-mysqlnd \
     php8-opcache \
     php8-sqlite3 \
