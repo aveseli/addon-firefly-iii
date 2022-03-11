@@ -30,17 +30,19 @@ if ! bashio::fs.file_exists "/data/firefly/appkey.txt"; then
  	bashio::log.info "App Key generated: ${key}"
 fi
 
-if ! bashio::services.available 'mysql'; then
-    bashio::log.fatal \
-      "Local database access should be provided by the MariaDB addon"
+# Require MySQL service to be available
+if ! bashio::services.available "mysql"; then
+    bashio::log.error \
+        "This add-on now requires the MariaDB core add-on 2.0 or newer!"
     bashio::exit.nok \
-      "Please ensure it is installed and started"
+        "Make sure the MariaDB add-on is installed and running"
 fi
 
 host=$(bashio::services "mysql" "host")
 password=$(bashio::services "mysql" "password")
 port=$(bashio::services "mysql" "port")
 username=$(bashio::services "mysql" "username")
+
 
 bashio::log.warning "Firefly-iii is using the Maria DB addon"
 bashio::log.warning "Please ensure this is included in your backups"
