@@ -22,19 +22,11 @@ if bashio::config.has_value 'mapbox_api_key';then
     MAPBOX_API_KEY=$(bashio::config "mapbox_api_key")
 fi
 
-if bashio::config.has_value 'remote_mysql_host';then
-    DB_HOST=$(bashio::config "remote_mysql_host")
-    DB_DATABASE=$(bashio::config "remote_mysql_database")
-    DB_USERNAME=$(bashio::config "remote_mysql_username")
-    DB_PASSWORD=$(bashio::config "remote_mysql_password")
-    DB_PORT=$(bashio::config "remote_mysql_port")
-else
-    DB_HOST=$(bashio::services "mysql" "host")
-    DB_DATABASE=firefly
-    DB_USERNAME=$(bashio::services "mysql" "username")
-    DB_PASSWORD=$(bashio::services "mysql" "password")
-    DB_PORT=$(bashio::services "mysql" "port")
-fi
+DB_HOST=$(bashio::services "mysql" "host")
+DB_DATABASE=firefly
+DB_USERNAME=$(bashio::services "mysql" "username")
+DB_PASSWORD=$(bashio::services "mysql" "password")
+DB_PORT=$(bashio::services "mysql" "port")
 
 if bashio::config.equals 'log_level' 'debug' \
     || bashio::config.equals 'log_level' 'trace' ;then

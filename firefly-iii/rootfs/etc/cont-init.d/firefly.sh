@@ -30,46 +30,24 @@ if ! bashio::fs.file_exists "/data/firefly/appkey.txt"; then
  	bashio::log.info "App Key generated: ${key}"
 fi
 
-if bashio::config.has_value 'remote_mysql_host'; then
-  if ! bashio::config.has_value 'remote_mysql_database'; then
-    bashio::exit.nok \
-      "Remote database has been specified but no database is configured"
-  fi
-
-  if ! bashio::config.has_value 'remote_mysql_username'; then
-    bashio::exit.nok \
-      "Remote database has been specified but no username is configured"
-  fi
-
-  if ! bashio::config.has_value 'remote_mysql_password'; then
+if ! bashio::services.available 'mysql'; then
     bashio::log.fatal \
-      "Remote database has been specified but no password is configured"
-  fi
-
-  if ! bashio::config.exists 'remote_mysql_port'; then
+      "Local database access should be provided by the MariaDB addon"
     bashio::exit.nok \
-      "Remote database has been specified but no port is configured"
-  fi
-else
-  if ! bashio::services.available 'mysql'; then
-     bashio::log.fatal \
-       "Local database access should be provided by the MariaDB addon"
-     bashio::exit.nok \
-       "Please ensure it is installed and started"
-  fi
-
-  host=$(bashio::services "mysql" "host")
-  password=$(bashio::services "mysql" "password")
-  port=$(bashio::services "mysql" "port")
-  username=$(bashio::services "mysql" "username")
-
-  bashio::log.warning "Firefly-iii is using the Maria DB addon"
-  bashio::log.warning "Please ensure this is included in your backups"
-  bashio::log.warning "Uninstalling the MariaDB addon will remove any data"
-
-  bashio::log.info "Creating database for Firefly-iii if required"
-  mysql \
-    -u "${username}" -p"${password}" \
-    -h "${host}" -P "${port}" \
-    -e "CREATE DATABASE IF NOT EXISTS \`firefly\` ;"
+      "Please ensure it is installed and started"
 fi
+
+host=$(bashio::services "mysql" "host")
+password=$(bashio::services "mysql" "password")
+port=$(bashio::services "mysql" "port")
+username=$(bashio::services "mysql" "username")
+
+bashio::log.warning "Firefly-iii is using the Maria DB addon"
+bashio::log.warning "Please ensure this is included in your backups"
+bashio::log.warning "Uninstalling the MariaDB addon will remove any data"
+
+bashio::log.info "Creating database for Firefly-iii if required"
+mysql \
+  -u "${username}" -p"${password}" \
+  -h "${host}" -P "${port}" \
+  -e "CREATE DATABASE IF NOT EXISTS \`firefly\` ;"
