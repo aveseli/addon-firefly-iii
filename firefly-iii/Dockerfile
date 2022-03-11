@@ -22,7 +22,7 @@ RUN \
     && echo "deb https://packages.sury.org/php/ buster main" > /etc/apt/sources.list.d/php.list \
     && apt-get update \
     && apt-get install  -y --no-install-recommends \
-        composer=1.8.4-1 \
+        composer \
         php7.4-bcmath \
         php7.4-curl \
         php7.4-cli \
