@@ -23,22 +23,22 @@ RUN \
     && apt-get update \
     && apt-get install  -y --no-install-recommends \
         composer=1.8.4-1 \
-        php7.4-bcmath=7.4.11-6+0~20201018.31+debian10~1.gbpdc1a93 \
-        php7.4-curl=7.4.11-6+0~20201018.31+debian10~1.gbpdc1a93 \
-        php7.4-cli=7.4.11-6+0~20201018.31+debian10~1.gbpdc1a93 \
-        php7.4-common=7.4.11-6+0~20201018.31+debian10~1.gbpdc1a93 \
-        php7.4-fpm=7.4.11-6+0~20201018.31+debian10~1.gbpdc1a93 \
-        php7.4-gd=7.4.11-6+0~20201018.31+debian10~1.gbpdc1a93 \
-        php7.4-intl=7.4.11-6+0~20201018.31+debian10~1.gbpdc1a93 \
-        php7.4-ldap=7.4.11-6+0~20201018.31+debian10~1.gbpdc1a93 \
-        php7.4-mbstring=7.4.11-6+0~20201018.31+debian10~1.gbpdc1a93 \
-        php7.4-mysql=7.4.11-6+0~20201018.31+debian10~1.gbpdc1a93 \
-        php7.4-opcache=7.4.11-6+0~20201018.31+debian10~1.gbpdc1a93 \
-        php7.4-readline=7.4.11-6+0~20201018.31+debian10~1.gbpdc1a93 \
-        php7.4-sqlite3=7.4.11-6+0~20201018.31+debian10~1.gbpdc1a93 \
-        php7.4-xml=7.4.11-6+0~20201018.31+debian10~1.gbpdc1a93 \
-        php7.4-zip=7.4.11-6+0~20201018.31+debian10~1.gbpdc1a93 \
-        php7.4=7.4.11-6+0~20201018.31+debian10~1.gbpdc1a93 \
+        php7.4-bcmath \
+        php7.4-curl \
+        php7.4-cli \
+        php7.4-common \
+        php7.4-fpm \
+        php7.4-gd \
+        php7.4-intl \
+        php7.4-ldap \
+        php7.4-mbstring \
+        php7.4-mysql \
+        php7.4-opcache \
+        php7.4-readline \
+        php7.4-sqlite3 \
+        php7.4-xml \
+        php7.4-zip \
+        php7.4 \
     \
     && FIREFLY_VERSION=5.4.5 \
     \
