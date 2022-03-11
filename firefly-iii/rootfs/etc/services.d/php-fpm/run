@@ -93,4 +93,4 @@ php /var/www/firefly/artisan key:generate
 
 bashio::log.info "Starting PHP-FPM..."
 
-exec php-fpm8 --nodaemonize
+# exec php-fpm8 --nodaemonize
