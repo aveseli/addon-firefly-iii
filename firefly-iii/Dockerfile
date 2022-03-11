@@ -11,12 +11,12 @@ RUN \
     apt-get update \
     \
     && apt-get install -y --no-install-recommends \
-        git=1:2.20.1-2+deb10u3 \
-        locales=2.28-10 \
-        mariadb-client=1:10.3.23-0+deb10u1 \
-        nginx=1.14.2-2+deb10u3 \
-        software-properties-common=0.96.20.2-2 \
-        unzip=6.0-23+deb10u1 \
+        git \
+        locales \
+        mariadb-client \
+        nginx \
+        software-properties-common \
+        unzip \
     #Requires PHP 7.4
     && curl -J -L -o /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg \
     && echo "deb https://packages.sury.org/php/ buster main" > /etc/apt/sources.list.d/php.list \
