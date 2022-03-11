@@ -18,10 +18,6 @@ export DB_PORT
 export DB_USERNAME
 export MAPBOX_API_KEY
 
-if bashio::config.has_value 'mapbox_api_key';then
-    MAPBOX_API_KEY=$(bashio::config "mapbox_api_key")
-fi
-
 DB_HOST=$(bashio::services "mysql" "host")
 DB_DATABASE=firefly
 DB_USERNAME=$(bashio::services "mysql" "username")
@@ -43,10 +39,6 @@ php /var/www/firefly/artisan firefly-iii:upgrade-database
 
 bashio::log.info "Step 3: passport:install"
 php /var/www/firefly/artisan passport:install
-
-bashio::log.info "Step 4: key:generate"
-php /var/www/firefly/artisan key:generate
-
 
 #sphp /var/www/firefly/artisan firefly-iii:create-database > /dev/null 2>&1
 
