@@ -55,7 +55,7 @@ RUN curl -sS https://getcomposer.org/installer | php8 -- --install-dir=/usr/loca
 
 RUN mkdir -p /var/www
 
-RUN FIREFLY_VERSION=5.6.16 \
+RUN FIREFLY_VERSION=5.7.0 \
         \
     && curl -J -L -o /tmp/firefly.tar.gz \
         https://github.com/firefly-iii/firefly-iii/archive/${FIREFLY_VERSION}.tar.gz \
