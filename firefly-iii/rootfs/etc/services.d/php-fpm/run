@@ -32,23 +32,15 @@ if bashio::config.equals 'log_level' 'debug' \
 fi
 bashio::log.info "Installing/updating Database"
 
-# bashio::log.info "Step 1: migrate:refresh"
-# php /var/www/firefly/artisan migrate:refresh --seed
-
-# bashio::log.info "Step 2: firefly-iii:upgrade-database"
-# php /var/www/firefly/artisan firefly-iii:upgrade-database
-
-# bashio::log.info "Step 3: passport:install"
-# php /var/www/firefly/artisan passport:install
-
 php /var/www/firefly/artisan package:discover
-
 
 bashio::log.info "Running migration commands..."
 
 php /var/www/firefly/artisan firefly-iii:create-database
 php /var/www/firefly/artisan migrate --seed --no-interaction --force
 php /var/www/firefly/artisan firefly-iii:decrypt-all
+
+php artisan firefly-iii:fix-pgsql-sequences
 
 bashio::log.info 'Running upgrade commands...'
 php /var/www/firefly/artisan firefly-iii:transaction-identifiers

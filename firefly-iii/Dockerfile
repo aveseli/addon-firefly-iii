@@ -1,12 +1,8 @@
 ARG BUILD_FROM=ghcr.io/hassio-addons/base/amd64:11.1.0
-# hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-
-
-# modified version from php:alpine image
 
 # ensure www-data user exists
 RUN set -x ; \
@@ -50,12 +46,11 @@ RUN apk add --no-cache \
 
 RUN ln -s /usr/bin/php8 /usr/bin/php
 
-# RUN curl -s https://getcomposer.org/installer | php8 && alias composer='php8 composer.phar'
 RUN curl -sS https://getcomposer.org/installer | php8 -- --install-dir=/usr/local/bin --filename=composer
 
 RUN mkdir -p /var/www
 
-RUN FIREFLY_VERSION=5.7.0 \
+RUN FIREFLY_VERSION=5.7.1 \
         \
     && curl -J -L -o /tmp/firefly.tar.gz \
         https://github.com/firefly-iii/firefly-iii/archive/${FIREFLY_VERSION}.tar.gz \
@@ -63,7 +58,7 @@ RUN FIREFLY_VERSION=5.7.0 \
     && tar zxf /tmp/firefly.tar.gz -C \
         /var/www/firefly --strip-components=1 \
     && cd /var/www/firefly \
-    && composer install --prefer-dist --no-dev --no-scripts --no-suggest
+    && composer install --prefer-dist --no-dev --no-scripts
 
 RUN apk add nginx
 RUN rm -f -r \
