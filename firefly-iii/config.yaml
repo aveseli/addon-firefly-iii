@@ -1,5 +1,5 @@
 name: Firefly III
-version: 0.0.4
+version: 0.0.5
 slug: fireflyiii
 description: A free and open source personal finance manager
 url: https://github.com/aveseli/addon-firefly-iii/
@@ -33,4 +33,4 @@ schema:
   keyfile: "str"
   ssl: "bool"
   mapbox_api_key: "str?"
-image: aveseli/{arch}-addon-firefly-iii
+image: aveseli/firefly-iii/{arch}
